@@ -11,7 +11,12 @@ class Blogger < ApplicationRecord
   end
 
   def most_liked_post
-    self.posts.max_by{ |post| post.likes }
+    if self.posts.length > 0
+    featured_post = self.posts.max_by{ |post| post.likes }
+    featured_post.title
+    else
+      "This Blogger doesn't have any posts yet"
+    end
   end
 
 end

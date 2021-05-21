@@ -1,5 +1,11 @@
 <h1>Add a Blogger</h1>
 
+<%if flash[:errors]%>
+<%flash[:errors].map do |error|%>
+<p><%=error%></p>
+<%end%>
+<%end%>
+
 <%= form_for @blogger do |f| %>
 
 <%= f.label "Name" %>
